@@ -7,8 +7,5 @@ module.exports =
       IN_BROWSER: true,
     }))
     return config;
-  },
-  publicRuntimeConfig: {
-    ANNUAL_SUBSCRIPTION_RAZORPAY_LINK: process.env.ANNUAL_SUBSCRIPTION_RAZORPAY_LINK
   }
 }
