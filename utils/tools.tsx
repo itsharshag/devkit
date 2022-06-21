@@ -139,55 +139,6 @@ export const groupedTools = [
   },
 ];
 
-export const groupedLearningTools = [
-  {
-    name: "",
-    tools: [
-      {
-        location: "/courses",
-        label: "Courses",
-        icon: <LaptopIcon sx={{ fontSize: "16px" }} />,
-        description: "Learn in a structured format",
-        color: "bg-sky-700",
-        textColor: "text-gray-900",
-      },
-      {
-        location: "/tech-talks",
-        label: "Tech Talks",
-        icon: <i className="fas fa-video" style={{ marginLeft: "3px" }}></i>,
-        description: "Enrich your knowledge with curated tech talks",
-        color: "bg-sky-700",
-        textColor: "text-gray-900",
-      },
-      {
-        location: "/programs",
-        label: "Programs",
-        icon: <i className="fas fa-briefcase"></i>,
-        description: "Internships, Mentorships, and other OSS opportunities",
-        color: "bg-sky-700",
-        textColor: "text-gray-900",
-      },
-      {
-        location: "/bootcamps",
-        label: "Bootcamps",
-        icon: <i className="fas fa-campground"></i>,
-        description: "Find 6-12 month long courses that can land you a job",
-        color: "bg-sky-700",
-        textColor: "text-gray-900",
-      },
-      {
-        location: "/startup-programs",
-        label: "Startup Programs",
-        icon: <i className="fas fa-rocket"></i>,
-        description:
-          "Bring your idea to life with the help of accelerators and other startup programs",
-        color: "bg-sky-700",
-        textColor: "text-gray-900",
-      },
-    ],
-  },
-];
-
 const developerToolsFlattened = groupedTools
   .flatMap((group) => group.tools)
   .map((tool) => ({ ...tool, group: 1 }));
