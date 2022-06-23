@@ -19,7 +19,7 @@ export default function Tool() {
   const sampleInput =
     '"car","price","color"\n"Audi",40000,"blue"\n"BMW",35000,"black"\n"Porsche",60000,"green"';
 
-  const ioFunc = async (input) => await csvtojson().fromString(input);
+  const ioFunc = async (input) => await csvtojson({ checkType: true }).fromString(input);
 
   useEffect(() => {
     const calculateOutput = async () => {
