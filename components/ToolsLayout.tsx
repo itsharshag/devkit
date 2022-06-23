@@ -37,11 +37,11 @@ export default function ToolsLayout(props) {
     [mode]
   );
 
-  const initialActions = tools.map((tool) => ({
-    id: tool.location,
-    name: tool?.label,
-    icon: tool.icon,
-    perform: () => router.push("/app" + tool.location),
+  const initialActions = tools.map(({ location, label = "", icon }) => ({
+    id: location,
+    name: label,
+    icon,
+    perform: () => router.push(location),
   }));
 
   return (

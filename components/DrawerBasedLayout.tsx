@@ -91,7 +91,7 @@ export default function PersistentDrawerLeft(props) {
     <>
       <DrawerHeader sx={{ background: "#1e1e1e" }}>
         <div className="w-full text-center" style={{ background: "#1e1e1e" }}>
-          <Link href="/app">
+          <Link href="/">
             <a
               className="title-font flex flex-1 cursor-pointer items-center font-medium"
               style={{ paddingLeft: "4px", paddingRight: "8px" }}
