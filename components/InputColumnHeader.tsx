@@ -24,7 +24,13 @@ export default function InputColumnHeader({
 
   return (
     <div className="flex-20-gap-align-center mb-4" style={{ height: "32px" }}>
-      <Dialog isOpen={isDialogOpen} isCloseButtonShown={true} className="p-8">
+      <Dialog isOpen={isDialogOpen} className="relative p-12">
+        <div className="cursor-pointer" onClick={() => setIsDialogOpen(false)}>
+          <i
+            className="fa-solid fa-xmark absolute right-3 top-3 rounded p-1 px-2 hover:bg-gray-200"
+            style={{ fontSize: "24px" }}
+          ></i>
+        </div>
         <FileUpload
           beforeUploadCallback={(fileContent) => {
             setInput(fileContent);
@@ -32,7 +38,7 @@ export default function InputColumnHeader({
           }}
         />
       </Dialog>
-      <p className="font-semibold text-white text-base tracking-normal">
+      <p className="text-base font-semibold tracking-normal text-white">
         {label}
       </p>
       {showButtons && (
