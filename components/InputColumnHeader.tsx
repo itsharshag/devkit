@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-
 import Button from "./Button";
-
-import { Dialog } from "@blueprintjs/core";
 import FileUpload from "./FileUpload";
+import { Modal } from "@nextui-org/react";
 
 export default function InputColumnHeader({
   label = "Input",
@@ -20,33 +18,40 @@ export default function InputColumnHeader({
   showLoadFileButton?: boolean;
   children?: any;
 }) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function openModal() {
+    setIsModalOpen(true);
+  }
+  function closeModal() {
+    setIsModalOpen(false);
+  }
 
   return (
-    <div className="flex-20-gap-align-center mb-4" style={{ height: "32px" }}>
-      <Dialog isOpen={isDialogOpen} className="relative p-12">
-        <div className="cursor-pointer" onClick={() => setIsDialogOpen(false)}>
-          <i
-            className="fa-solid fa-xmark absolute right-3 top-3 rounded p-1 px-2 hover:bg-gray-200"
-            style={{ fontSize: "24px" }}
-          ></i>
+    <div className="mb-4 flex items-center gap-20" style={{ height: "32px" }}>
+      <Modal
+        open={isModalOpen}
+        onClose={closeModal}
+        closeButton
+        animated={false}
+        className="relative bg-white p-10"
+      >
+        <div className="rounded-lg bg-blue-100 py-6 px-4  text-gray-800">
+          <FileUpload
+            beforeUploadCallback={(fileContent) => {
+              setInput(fileContent);
+              setIsModalOpen(false);
+            }}
+          />
         </div>
-        <FileUpload
-          beforeUploadCallback={(fileContent) => {
-            setInput(fileContent);
-            setIsDialogOpen(false);
-          }}
-        />
-      </Dialog>
+      </Modal>
       <p className="text-base font-semibold tracking-normal text-white">
         {label}
       </p>
       {showButtons && (
         <div className="buttons-group">
           <Button onClick={() => setInput(sampleInput)}>Use Sample</Button>
-          {showLoadFileButton && (
-            <Button onClick={() => setIsDialogOpen(true)}>Load File</Button>
-          )}
+          {showLoadFileButton && <Button onClick={openModal}>Load File</Button>}
           <Button onClick={() => setInput("")}>Clear</Button>
         </div>
       )}
