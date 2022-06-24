@@ -28,7 +28,7 @@ export default function InputColumnHeader({
   }
 
   return (
-    <div className="mb-4 flex items-center gap-20" style={{ height: "32px" }}>
+    <div className="mb-4" style={{ height: "32px" }}>
       <Modal
         open={isModalOpen}
         onClose={closeModal}
