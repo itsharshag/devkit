@@ -22,10 +22,10 @@ export default function FileUpload({ beforeUploadCallback }) {
   };
   return (
     <Dragger {...props}>
-      <p className="ant-upload-drag-icon">
-        <InboxOutlined />
+      <p className="ant-upload-drag-icon ">
+        <InboxOutlined style={{ fontSize: "28px" }} />
       </p>
-      <p className="ant-upload-text">
+      <p className="ant-upload-text w mt-4 text-sm uppercase tracking-normal">
         Click or drag file to this area to upload
       </p>
     </Dragger>
